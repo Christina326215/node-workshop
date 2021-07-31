@@ -1,9 +1,5 @@
 function sum(n){
-    var total= 0;
-    for(let i=1; i<=n; i++){
-        total+= i;
-    }
-    return total;
+    return ((n+1)*n)/2;
 }
-
 console.log(sum(10));
+
