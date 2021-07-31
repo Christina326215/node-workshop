@@ -1,8 +1,9 @@
-function SumData(){
-    var sum=0;
-    sum += 1;
-
-    return sum;
+function sum(n){
+    var total= 0;
+    for(let i=0; i<=n; i++){
+        total+= i;
+    }
+    return total;
 }
 
-SumData()
+console.log(sum(10));
