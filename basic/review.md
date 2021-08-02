@@ -1,6 +1,6 @@
 # code review 討論
-![monkey](https://media.giphy.com/media/hrRJ41JB2zlgZiYcCw/giphy.gif "我是猴子")
-
+![monkey](https://media.giphy.com/media/hrRJ41JB2zlgZiYcCw/giphy.gif)
+![monkey](https://media.giphy.com/media/ySpxjJmsq9gsw/giphy.gif)
 
 ### 1. 為什麼需要 code review?
 - 保持程式碼一致性
