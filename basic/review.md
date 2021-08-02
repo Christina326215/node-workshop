@@ -1,5 +1,4 @@
 # code review 討論
-![monkey](https://media.giphy.com/media/hrRJ41JB2zlgZiYcCw/giphy.gif)
 ![monkey](https://media.giphy.com/media/ySpxjJmsq9gsw/giphy.gif)
 
 ### 1. 為什麼需要 code review?
@@ -13,12 +12,19 @@
     - 找到可能的bug，和程式碼的可維護性。
 - 找出每個情狀下，最適合的工具或方法
     - 當 Review 出現兩種意見，各有利弊的時候，應使用客觀的角度，用理論與數據來決定採用哪個方案。
+
 > [name=RO YU]好酷！
+> 
 > [name=abbychen0427]我是abby留言測試
+> 
 > [name=黃小玉]Hello
+> 
 > [name=Christina326215]嗨嗨嗨
+> 
 > [name=Tzuling Tseng]老師我愛你
+> 
 > [name=lily516liu] ya
+> 
 ---
 ### 2. reviewer 應該要去檢查哪些東西？怎麼做？
 - coding規範
