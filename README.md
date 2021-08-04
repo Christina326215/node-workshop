@@ -5,9 +5,9 @@ version: 20210731 and 20210801
 ---
 
 ## 前言：過去所學的Javascript是一種程式語言，限於瀏覽器使用，而 NodeJS 是一個執行環境，可以脫離瀏覽器、在伺服器執行 JS 程式語言的一個環境。
--> document,window,location,setTimeout,setInterval由瀏覽器提供。
--> NodeJS和瀏覽器都有提供console.log, setTimeout, setInterval。
-
+- document,window,location,setTimeout,setInterval由瀏覽器提供。
+- NodeJS和瀏覽器都有提供console.log, setTimeout, setInterval。
+----
 
 #### 安裝 node
 ```
@@ -77,6 +77,7 @@ $ nvm alias default 14.17.4
 $ node {檔名sum.js}
 ```
 
+---- 
 ### Condition:想先在github上建立repo，再clone下來到自己的本機。
 1. 到 github 建立 node-workshop 專案
 2. 選擇https clone 複製 url
@@ -91,8 +92,8 @@ $ node {檔案名稱sum.js}
 ```
 6. git add, commit -> git push
 ----
-Process 成本比較高的執行單位，content swtich 的成本比較高
-Thread: Process 之下，CPU 執行的單位 （可能會發生 race condition)
+- Process 成本比較高的執行單位，content swtich 的成本比較高
+- Thread: Process 之下，CPU 執行的單位 （可能會發生 race condition)
 
 ![](https://i.imgur.com/azCAxXO.png)
 
@@ -110,7 +111,7 @@ JS -> single-thread --> non-blocking 非阻塞 --> WebAPI, NodeJS API
    -> callback / queue / event-loop
      --> callback hell
 ```     
-
+----
 ### PHP 有以下四個特色：
 1. multi-process
 2. 阻塞
@@ -130,14 +131,14 @@ JS -> single-thread --> non-blocking 非阻塞 --> WebAPI, NodeJS API
 
 NodeJS vs PHP -> 依照我們上述測試，NodeJS 比較快
 
-所謂的性能比較，不同情境下，可能會有截然不同的結果
+所謂的性能比較，不同情境下，可能會有截然不同的結果。
 
 php 開這麼多 process，為什麼還比較慢？ => content switch 的成本、記憶體的資源
 node 單執行緒 => 先用完 CPU
   - 缺點：無法善用多核心
  
-PHP 容錯能力比較強大
-node single-thread 一但發生讓這個 thread 中止執行的錯誤時，可能整個 server 就掰掰了
+###### PHP 容錯能力比較強大
+###### node single-thread 一但發生讓這個 thread 中止執行的錯誤時，可能整個 server 就掰掰了
 ----
 - stack: Data Structure 的一種，Last In First Out (LIFO) 或 Fisrt In Last Out (FILO)。
 
@@ -149,7 +150,7 @@ node single-thread 一但發生讓這個 thread 中止執行的錯誤時，可�
 
 ![](https://i.imgur.com/10XuJdB.png)
 ----
-[ 重要的 JS 觀念]
+### [ 重要的 JS 觀念]
 https://reurl.cc/7rAGbd
 ----
 ## 介紹同步與非同步：
