@@ -1,10 +1,10 @@
 ---
 title: My Learning Note - NodeJS Workshop 
 description: Node.JS note
-version: 20210731
+version: 20210731 and 20210801
 ---
 
-#### 前言：過去所學的Javascript是一種程式語言，限於瀏覽器使用，而 NodeJS 是一個執行環境，可以脫離瀏覽器、在伺服器執行 JS 程式語言的一個環境。
+## 前言：過去所學的Javascript是一種程式語言，限於瀏覽器使用，而 NodeJS 是一個執行環境，可以脫離瀏覽器、在伺服器執行 JS 程式語言的一個環境。
 -> document,window,location,setTimeout,setInterval由瀏覽器提供。
 -> NodeJS和瀏覽器都有提供console.log, setTimeout, setInterval。
 
@@ -18,61 +18,61 @@ nvm: node version manager
 $ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash
 ```
 
-# 確認自己用的 shell 是哪一種後，修改相對應的設定檔。
+#### 確認自己用的 shell 是哪一種後，修改相對應的設定檔。
 ```bash=
 $ echo $0
 ```
 
-# 使用下面指令進入修改
+#### 使用下面指令進入修改
 ```bash=
 $ nano ~/.bash_profile
 ```
 
-# 輸入下列進去(會出現在install那邊可以copy)
+#### 輸入下列進去(會出現在install那邊可以copy)
 ```bash=
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This load$
 ```
 
-# 修改完，存檔後，重新啟動 terminal
+#### 修改完，存檔後，重新啟動 terminal
 
-# 重新啟動 terminal後,輸入下列指令查詢版本號
+#### 重新啟動 terminal後,輸入下列指令查詢版本號
 ```bash=
 $ nvm -v
 ```
 
-# 列出可以安裝的版本
+#### 列出可以安裝的版本
 ```bash=
 $ nvm ls-remote 14
 ```
 
-# 安裝最新版本號
+#### 安裝最新版本號
 ```bash=
 $ nvm install 14.17.4
 ```
 
-# 切換要使用的 node 版本
+#### 切換要使用的 node 版本
 ```bash=
 $ nvm use 14.17.4
 ```
 
-# 確認目前執行的版本
+#### 確認目前執行的版本
 ```bash=
 $ node -v
 ```
 
-# 列出你目前主機安裝的版本
+#### 列出你目前主機安裝的版本
 ```bash=
 $ nvm ls
 ```
 
-# 設定預設的版本
+#### 設定預設的版本
 ```bash=
 $ nvm alias default 14.17.4
 ```
 
-# 執行檔案
+#### 執行檔案
 ```bash=
 $ node {檔名sum.js}
 ```
@@ -96,6 +96,7 @@ Thread: Process 之下，CPU 執行的單位 （可能會發生 race condition)
 
 ![](https://i.imgur.com/azCAxXO.png)
 
+----
 ### nodeJS 有以下四個特色：
 1. 單執行緒(single thread)
 2. 非阻塞
