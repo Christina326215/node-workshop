@@ -25,15 +25,36 @@ let doWork = function (job, timer, isOK, cb) {
   return new Promise(executor);
 };
 
+// let job1 = doWork("刷牙", 3000, true);
+// // doWork 回傳的東西是？？？ Promise物件
+// console.log(job1); // => pending
+// // 用 then() 來接收「然後」的結果
+// job1.then(
+//   () => {
+//     // 準備接收成功的回覆
+//   },
+//   () => {
+//     // 準備接收失敗的回覆
+//   }
+// );
+
 let job1 = doWork("刷牙", 3000, true);
-// doWork 回傳的東西是？？？ Promise物件
-console.log(job1); // => pending
-// 用 then() 來接收「然後」的結果
-job1.then(
-  () => {
-    // 準備接收成功的回覆
-  },
-  () => {
-    // 準備接收失敗的回覆
-  }
-);
+console.log(job1); // pending
+// doWork 回傳的 promise 物件
+let job2 = job1.then((result) => {
+  // 處理刷牙的成功後的事
+  console.log(result);
+  return doWork("吃早餐", 5000, true);
+});
+// job2 也是一個 promise 物件
+console.log(job2); // pending
+let job3 = job2.then((result) => {
+  // 做吃早餐成功後要做的事
+  console.log(result);
+  return doWork("寫功課", 3000, true);
+});
+console.log(job3); // 狀態為 pending 的 Promise 物件
+job3.then((result) => {
+  // 做寫功課後要做的事
+  console.log(result);
+});
