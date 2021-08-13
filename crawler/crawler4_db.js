@@ -45,9 +45,9 @@ function validStockCode(stockCode) {
         if(error){
           reject(error);
         }
-        // if(result.length === 0){
-        //   reject("抱歉，資料庫查無此股票代碼，不在此服務範圍內！");
-        // }
+        if(result.length === 0){
+          reject("抱歉，資料庫查無此股票代碼，不在此服務範圍內！");
+        }
         resolve(result);
       }
     );
@@ -89,14 +89,14 @@ async function stockCrawler() {
     // 1. 讀 stock.txt 把股票代碼讀進來。
     let stockCode = await readStockCode();
     // 2. 檢查是否在我們資料庫的服務範圍內。
-    let dbResult = await validStockCode(stockCode);
+    let dbResults = await validStockCode(stockCode);
 
-    // if (dbResults.length === 0) {
-    //   // console.warn("此股票代碼不在服務範圍內");
-    //   // return;
-    //   throw "此股票代碼不在服務範圍內";
-    // }
-    // console.info("在資料庫有查到資料");
+    if (dbResults.length === 0) {
+      // console.warn("此股票代碼不在服務範圍內");
+      // return;
+      throw "此股票代碼不在服務範圍內";
+    }
+    console.info("在資料庫有查到資料");
 
     // 3. 若確認在我們的服務範圍內，就可以從證券交易所以axios get到相關資料。
     let response = await getStockData(stockCode);
