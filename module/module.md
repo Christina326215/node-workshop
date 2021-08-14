@@ -5,10 +5,10 @@
 - 也就是 module.exports = {};
 - 然後 exports = module.exports;
 - 兩者都指向同一個物件，如下圖。
-  ![](2021-08-14-21-46-36.png)
+  ![](1.png)
 
 - exports.showColor = showColor; 與 module.exports.showColor = showColor; 是同一件事，如下圖。
-  ![](2021-08-14-21-54-37.png)
+  ![](2.png)
 
 ```bash=
  let brand = "iphone";
@@ -64,6 +64,6 @@ module.exports.showBrand = showBrand;
 // 如果是要使用 exports，要很小心，不要為 exports 重新宣告一個物件。
 ```
 
-![](2021-08-14-22-31-14.png)
+![](3.png)
 
-![](2021-08-14-22-34-43.png)
+![](5.png)
