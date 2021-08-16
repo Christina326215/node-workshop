@@ -2,7 +2,11 @@
 
 const axios = require("axios");
 const moment = require("moment");
+
 const fs = require("fs");
+// const { readFile } = require("fs");
+// readFile("stock.txt", "utf8", callback)
+
 const mysql = require("mysql");
 require("dotenv").config();
 
