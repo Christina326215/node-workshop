@@ -17,6 +17,7 @@ app.use((request,response,next) => {
 // http method: get, post, put, patch, delete......
 app.get("/",function(request, response,next){
     response.send("hello, this is my first express, with nodemon.");
+    next();
 });
 
 app.get("/about",function(request, response,next){
