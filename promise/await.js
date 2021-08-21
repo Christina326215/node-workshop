@@ -26,12 +26,14 @@ async function doAllWorks() {
   } catch (e) {
     console.error(e);
   }
+
   try {
     let result2 = await doWork("吃早餐", 5000, true);
     console.log(result2);
   } catch (e) {
     console.error(e);
   }
+
   try {
     let result3 = await doWork("寫功課", 3000, true);
     console.log(result3);
