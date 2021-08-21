@@ -19,32 +19,25 @@ let doWork = function (job, timer, isOK) {
   });
 };
 
-// await 等到後面那個 promise 物件的狀態變成fulfilled
 async function doAllWorks() {
-  let result1 = await doWork("刷牙", 3000, true);
-  console.log(result1);
-  let result2 = await doWork("吃早餐", 5000, true);
-  console.log(result2);
-  let result3 = await  doWork("寫功課", 3000, true);
-  console.log(result3);
-};
-doAllWorks();
+  try {
+    let result1 = await doWork("刷牙", 3000, true);
+    console.log(result1);
+  } catch (e) {
+    console.error(e);
+  }
+  try {
+    let result2 = await doWork("吃早餐", 5000, true);
+    console.log(result2);
+  } catch (e) {
+    console.error(e);
+  }
+  try {
+    let result3 = await doWork("寫功課", 3000, true);
+    console.log(result3);
+  } catch (e) {
+    console.error(e);
+  }
+}
 
-// doWork("刷牙", 3000, true)
-//   .then((resolve) => {
-//     console.log("first", resolve);
-//     return doWork("吃早餐", 5000, true);
-//   })
-//   .then((resolve) => {
-//     console.log("second", resolve);
-//     return doWork("寫功課", 3000, true);
-//   })
-//   .then((resolve) => {
-//     console.log("third", resolve);
-//   })
-//   .catch((reject) => {
-//     console.log("error", reject);
-//   })
-//   .finally(() => {
-//     console.log("finally");
-//   });
+doAllWorks();
