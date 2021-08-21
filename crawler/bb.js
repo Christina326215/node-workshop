@@ -10,3 +10,5 @@ car2 = {
 }
 
 console.log(car1.owner);
+
+// ![](2.png)
