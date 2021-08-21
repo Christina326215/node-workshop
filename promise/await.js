@@ -19,7 +19,6 @@ let doWork = function (job, timer, isOK) {
   });
 };
 
-// await 等到後面那個 promise 物件的狀態變成fulfilled
 async function doAllWorks() {
   try {
     let result1 = await doWork("刷牙", 3000, true);
@@ -42,4 +41,5 @@ async function doAllWorks() {
     console.error(e);
   }
 }
+
 doAllWorks();
