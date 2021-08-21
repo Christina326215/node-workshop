@@ -64,3 +64,5 @@ app.listen(3000, async function () {
   // await connection.connectAsync();
   console.log("我們的 web server 啟動了～");
 });
+
+// ![](middleware.png)
