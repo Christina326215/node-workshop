@@ -9,4 +9,4 @@ car2.owner = "Jack";
 
 console.log(car1.owner);
 
-![](https://i.imgur.com/nJcZF4z.png)
+// ![](1.png)
