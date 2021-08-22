@@ -1,4 +1,4 @@
-// fs/promises + mysql2 使用套件版本
+// fs/promises + mysql2/promise 使用套件版本
 
 const axios = require("axios");
 const moment = require("moment");
@@ -41,12 +41,12 @@ require("dotenv").config();
 // }
 
 // 若確定是資料庫服務範圍內，就能夠利用axios抓取json資料。
-function getStockData(stockNo) {
+function getStockData(stockCode) {
   return axios.get("https://www.twse.com.tw/exchangeReport/STOCK_DAY", {
     params: {
       response: "json",
       date: moment().format("YYYYMMDD"),
-      stockNo: stockNo,
+      stockNo: stockCode,
     },
   });
 }
@@ -159,4 +159,4 @@ async function stockCrawler() {
 
 stockCrawler();
 
-// test2
+
