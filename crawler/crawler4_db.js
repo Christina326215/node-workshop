@@ -59,12 +59,12 @@ function validStockCode(stockCode) {
 };
 
 // 若確定是資料庫服務範圍內，就能夠利用axios抓取json資料。
-function getStockData(stockNo) {
+function getStockData(stockCode) {
   return axios.get("https://www.twse.com.tw/exchangeReport/STOCK_DAY", {
     params: {
       response: "json",
       date: moment().format("YYYYMMDD"),
-      stockNo: stockNo,
+      stockNo: stockCode,
     },
   });
 }
