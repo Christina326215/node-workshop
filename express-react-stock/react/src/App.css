@@ -1,0 +1,14 @@
+.stock-table-all {
+  margin: 20px auto;
+}
+.stock-table {
+  width: 1080px;
+  margin: 20px auto;
+}
+.stock-table thead {
+  font-weight: bolder;
+  color: indianred;
+}
+.stock-table td {
+  padding: 5px;
+}
