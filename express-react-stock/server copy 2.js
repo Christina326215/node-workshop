@@ -5,7 +5,6 @@ require("dotenv").config();
 // 利用 express 建立了一個 express application
 let app = express();
 
-// 面對跨源請求時
 // 處理 cors 問題
 // 後端必須要開放、允許跨源請求
 // 這樣跨源的前端才不會被瀏覽器擋下來
@@ -44,20 +43,15 @@ app.use(express.json());
 
 // 用中間件來設定靜態檔案(static)的位置
 // 靜態檔案: 圖片、前端的js, css, html,....
-// http://localhost:3500/test.html -> 我是 Simple Express 的 HTML 頁面
-// http://localhost:3500/uploads/member-1630317202444.jpeg
+// http://localhost:3500
 app.use(express.static(path.join(__dirname, "public")));
-
 // 因為 react-test 檔案夾裡，我們有放了 index.html
 // 這個中間件的設定又是在 / 路由前，所以首頁被這裡給攔截了
 // 把 index.html 讀出來，而且 response 回去了
 // --> 同源
-// http://localhost:3500/react-test/index.html
+app.use(express.static(path.join(__dirname, "react-test")));
 // static 是靜態資源: html, css, js, images,..
 // 透過 static 來部署 react 的話，他只幫忙到回覆 index.html
-
-app.use(express.static(path.join(__dirname, "react-test")));
-
 
 // app.use 使用一個「中間件」
 // app.use(middleware))
@@ -78,7 +72,6 @@ app.use((req, res, next) => {
   next();
 });
 
-// http://localhost:3500/ssr
 app.get("/ssr", (req, res, next) => {
   // 因為已經設定好要用的 view engine 是 pug
   // 而且也設定好 pug 檔案在 views 檔案夾了
@@ -86,7 +79,6 @@ app.get("/ssr", (req, res, next) => {
   res.render("ssr");
 });
 
-// http://localhost:3500/ssr/stock
 app.get("/ssr/stock", async (req, res, next) => {
   let result = await connection.queryAsync("SELECT * FROM stock");
   // stock.pug
@@ -97,12 +89,10 @@ app.get("/ssr/stock", async (req, res, next) => {
 
 // HTTP Method: get, post, put, patch, delete
 // router 路由: 特殊的 middleware
-// http://localhost:3500 -> Hello with nodemon
-app.get("/", function (req, res, next) {
-  res.send("Hello with nodemon");
+app.get("/", function (request, response, next) {
+  response.send("Hello with nodemon");
 });
 
-// http://localhost:3500/doc -> I am DOC
 app.get("/doc", (req, res, next) => {
   res.send("I am DOC");
 });
@@ -139,19 +129,16 @@ app.get("/about", (req, res, next) => {
 let stockRouter = require("./routers/stock");
 // /stock
 // /stock/:stockCode
-// http://localhost:3500/api/stock -> 產生json格式資料
 app.use("/api/stock", stockRouter);
 
 // 引入 auth router 中間件
 let authRouter = require("./routers/auth");
 // 使用這個路由中間件
-// http://localhost:3500/api/auth
 app.use("/api/auth", authRouter);
 
 // 引入 member router 中間件
 let memberRouter = require("./routers/member");
 // 使用這個路由中間件
-// http://localhost:3500/api/member
 app.use("/api/member", memberRouter);
 
 // 放在所有 API 下方，如果不是 /api/xxx 的就會進入這裡
@@ -177,7 +164,7 @@ app.use((req, res, next) => {
 // 導致沒有任何 response (旅程一直沒有被結束)
 // 利用這個特定，把這裡當成 404 來處理
 app.use((req, res, next) => {
-  res.status(404).json({ message: "404 NOT FOUND" });
+  res.status(404).json({ message: "NOT FOUND" });
 });
 
 // 超級特殊的 middleware
@@ -206,7 +193,7 @@ app.use((err, req, res, next) => {
   //   status: 401,
   //   message: "沒有登入不能用喔",
   // }
-  res.status(err.status).json({ status: err.status, message: err.message });
+  res.status(err.status).json({ message: err.message });
 });
 
 const port = 3500;

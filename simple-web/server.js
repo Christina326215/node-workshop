@@ -15,7 +15,8 @@ const server = http.createServer((req, res) => {
 });
 
 
-// port3500
-server.listen(3500, () => {
+// port3800
+server.listen(3800, () => {
     console.log("我們的 web server 啟動了～");
 });
+
